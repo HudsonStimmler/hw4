@@ -18,6 +18,7 @@ void setNode(Node* n, int key, Node* left=NULL, Node* right=NULL)
   n->right = right;
 }
 
+
 void test1(const char* msg)
 {
   setNode(a,1,NULL, NULL);
