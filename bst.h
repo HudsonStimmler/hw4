@@ -462,21 +462,21 @@ void BinarySearchTree<Key, Value>::insert(const std::pair<const Key, Value> &key
         currNode->setValue(keyValuePair.second);
         insertion = true;
       }
-      else if(currNode->getKey() < keyValuePair.first){
-        if(currNode->getRight() != nullptr){
-          currNode = currNode->getRight();
-        }
-        else{
-          currNode->setRight(new Node<Key, Value>(keyValuePair.first, keyValuePair.second, currNode));
-          insertion = true;
-        }
-      }
-      else{
+      else if(currNode->getKey() > keyValuePair.first){
         if(currNode->getLeft() != nullptr){
           currNode = currNode->getLeft();
         }
         else{
           currNode->setLeft(new Node<Key, Value>(keyValuePair.first, keyValuePair.second, currNode));
+          insertion = true;
+        }
+      }
+      else{
+        if(currNode->getRight() != nullptr){
+          currNode = currNode->getRight();
+        }
+        else{
+          currNode->setRight(new Node<Key, Value>(keyValuePair.first, keyValuePair.second, currNode));
           insertion = true;
         }
       }
